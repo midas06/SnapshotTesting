@@ -5,6 +5,12 @@
         <!-- Customize your theme here. -->
     </style>
 
+
+    <!-- your theme inherits from the material theme -->
+    <style name="MaterialTheme" parent="android:Theme.Material">
+        <!-- theme customizations -->
+    </style>
+
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>

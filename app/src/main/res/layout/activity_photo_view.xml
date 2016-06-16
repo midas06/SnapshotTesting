@@ -37,7 +37,8 @@
                 android:typeface="normal"
                 android:textSize="16dip"
                 android:textIsSelectable="false"
-                android:padding="3dp" />
+                android:padding="3dp"
+                android:layout_centerVertical="true" />
 
         </RelativeLayout>
 

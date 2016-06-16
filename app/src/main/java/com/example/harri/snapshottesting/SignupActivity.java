@@ -56,7 +56,7 @@ public class SignupActivity extends AppCompatActivity {
 
         signupButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this, R.style.AppTheme_Dark_Dialog);
+        final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this, R.style.MaterialTheme);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Creating account");
         progressDialog.show();

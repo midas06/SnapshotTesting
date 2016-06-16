@@ -1,12 +1,10 @@
 package com.example.harri.snapshottesting;
 
 import android.app.ProgressDialog;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,7 +56,7 @@ public class LoginActivity2 extends AppCompatActivity {
 
         loginButton.setEnabled(false);
 
-        final ProgressDialog loginProgressDialog = new ProgressDialog(LoginActivity2.this, R.style.AppTheme_Dark_Dialog);
+        final ProgressDialog loginProgressDialog = new ProgressDialog(LoginActivity2.this, R.style.MaterialTheme);
 //        final ProgressDialog loginProgressDialog = new ProgressDialog(LoginActivity2.this);
         loginProgressDialog.setIndeterminate(true);
         loginProgressDialog.setMessage("Authenticating...");

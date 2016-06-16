@@ -1,9 +1,6 @@
 package com.example.harri.snapshottesting;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +72,8 @@ public class PhotoAdapter extends BaseAdapter {
                 .noFade().resize(photoWidth, photoWidth)
                 .centerCrop()
                 .into(imageView);
+
+        imageView.setPadding(8, 0, 8, 0);
         return imageView;
     }
 

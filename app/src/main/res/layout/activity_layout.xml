@@ -3,10 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="com.example.harri.snapshottesting.LayoutActivity">
 
     <RelativeLayout
@@ -19,28 +16,30 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/topMenu">
+            android:id="@+id/topMenu"
+            android:background="@color/logoblue">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/iview_Logo" />
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:id="@+id/iview_Logo"
+                android:layout_centerVertical="true"
+                android:padding="3dp"
+                android:src="@drawable/logosmall" />
 
-            <Button
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button2"
+                android:text="Recent Photos"
+                android:id="@+id/tview_Header"
+                android:textColor="@color/primary"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_toStartOf="@+id/button3" />
+                android:typeface="normal"
+                android:textSize="25dip"
+                android:textIsSelectable="false"
+                android:padding="3dp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button3"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true" />
         </RelativeLayout>
 
     </RelativeLayout>
@@ -49,25 +48,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/midPanel"
-        android:layout_below="@id/topPanel">
+        android:layout_below="@id/topPanel"
+        android:layout_above="@+id/bottomPanel"
+        android:background="@drawable/bgpart2">
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/cardviewGrid"
-            android:layout_gravity="center"
-            android:layout_width="800dp"
-            android:layout_height="300dp"
-            card_view:cardCornerRadius="4dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/gridlayout"
+            android:layout_below="@+id/useridlayout">
+
             <GridView
                 android:layout_width="wrap_content"
-                android:layout_height="280dp"
+                android:layout_height="fill_parent"
                 android:layout_gravity="bottom"
                 android:id="@+id/photoGridview"
                 android:numColumns="3"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentStart="false"
-                android:paddingBottom="35dp" />
-        </android.support.v7.widget.CardView>
+                android:paddingBottom="35dp"
+                android:layout_alignBottom="@+id/cardviewGrid"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="45dp"
+                android:elevation="5dp" />
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardviewGrid"
+                android:layout_gravity="center"
+                android:layout_width="800dp"
+                android:layout_height="fill_parent"
+                card_view:cardCornerRadius="4dp"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                android:layout_margin="16dp"></android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/useridlayout">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button4"
+                android:visibility="invisible" />
+        </RelativeLayout>
 
 
     </RelativeLayout>
@@ -87,3 +121,8 @@
 
 
 </RelativeLayout>
+
+    <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
+    <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingTop="@dimen/activity_vertical_margin"-->

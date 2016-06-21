@@ -1,7 +1,9 @@
 package com.example.harri.snapshottesting;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +13,7 @@ public class PhotoViewActivity extends Activity {
 
     ImageView imageView;
     TextView headerText;
+    ImageView btnHome, btnTimelapse, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,9 @@ public class PhotoViewActivity extends Activity {
         setContentView(R.layout.activity_photo_view);
 
         this.headerText = (TextView)findViewById(R.id.tview_Header);
+        btnBack = (ImageView) findViewById(R.id.btnBack);
+        btnHome = (ImageView) findViewById(R.id.btnHome);
+        btnTimelapse = (ImageView) findViewById(R.id.btnTimelapse);
 
         this.imageView = (ImageView)findViewById(R.id.imageView);
         int position = getIntent().getIntExtra("position", -1);
@@ -39,9 +45,46 @@ public class PhotoViewActivity extends Activity {
                     .centerCrop()
                     .into(imageView);
         }
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClick_Home();
+            }
+        });
+
+        btnTimelapse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClick_Timelapse();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void setHeader(int position) {
         this.headerText.setText(LayoutActivity.descriptionArray[position]);
     }
+
+
+    public void onClick_Home() {
+        Intent intent = new Intent(PhotoViewActivity.this, LayoutActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick_Timelapse() {
+        Intent intent = new Intent(PhotoViewActivity.this, VideoViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick_Back() {
+        finish();
+    }
+
 }

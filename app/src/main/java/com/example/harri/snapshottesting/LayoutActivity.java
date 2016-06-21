@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -13,6 +14,8 @@ public class LayoutActivity extends Activity {
     GridView gridView;
     PhotoAdapter photoAdapter;
     ImageView iview_Logo;
+    ImageView btnHome, btnTimelapse, btnBack;
+
     public static Integer[] photoArray = {R.drawable.frame001, R.drawable.frame002, R.drawable.frame003,
             R.drawable.frame004, R.drawable.frame005, R.drawable.frame006,
             R.drawable.frame007, R.drawable.frame008, R.drawable.frame009};
@@ -47,8 +50,10 @@ public class LayoutActivity extends Activity {
 
         gridView = (GridView) findViewById(R.id.photoGridview);
         iview_Logo = (ImageView)findViewById(R.id.iview_Logo);
-//        iview_Logo.setImageResource(R.drawable.logosmall);
-//        iview_Logo.setLayoutParams(new RelativeLayout.LayoutParams(150, 150));
+        btnBack = (ImageView) findViewById(R.id.btnBack);
+        btnHome = (ImageView) findViewById(R.id.btnHome);
+        btnTimelapse = (ImageView) findViewById(R.id.btnTimelapse);
+        
 
         photoAdapter = new PhotoAdapter(this);
         photoAdapter.setUrlArray(this.urlArray);
@@ -64,6 +69,20 @@ public class LayoutActivity extends Activity {
             }
         });
 
+        btnTimelapse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClick_Timelapse();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     public void setAdapter(String[] newPhotos) {
@@ -73,4 +92,20 @@ public class LayoutActivity extends Activity {
     public PhotoAdapter getAdapter() {
         return this.photoAdapter;
     }
+
+
+    public void onClick_Home() {
+        Intent intent = new Intent(LayoutActivity.this, LayoutActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick_Timelapse() {
+        Intent intent = new Intent(LayoutActivity.this, VideoViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClick_Back() {
+        finish();
+    }
+
 }

@@ -62,7 +62,8 @@ public class LoginActivity2 extends AppCompatActivity {
         loginProgressDialog.setMessage("Authenticating...");
         loginProgressDialog.show();
 
-        // TODO: integrate auth logic
+        String email = emailText.getText().toString();
+        String password = passwordText.getText().toString();
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -78,7 +79,7 @@ public class LoginActivity2 extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_SIGNUP) {
             if (resultCode == RESULT_OK) {
-                // TODO: signup logic
+
                 this.finish();
             }
         }
@@ -92,6 +93,8 @@ public class LoginActivity2 extends AppCompatActivity {
 
     public void onLoginSuccess() {
         loginButton.setEnabled(true);
+        Intent intent = new Intent(getApplicationContext(), LayoutActivity.class);
+        startActivityForResult(intent, REQUEST_SIGNUP);
     }
 
     public void onLoginFailed() {
